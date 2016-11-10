@@ -5,7 +5,7 @@ app.config([
 
         $routeProvider
         .when('/Home', { // For Home Page
-            templateUrl: '/AngularTemplates/Home.html',
+            templateUrl: '/AngularTemplates/Index.html',
             controller: 'HomeController'
          })
         .when('/Contact', { // For Contact page
