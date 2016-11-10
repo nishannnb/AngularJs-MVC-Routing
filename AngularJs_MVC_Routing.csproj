@@ -173,10 +173,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\About.html" />
-    <Content Include="Views\Home\Index.html" />
-    <Content Include="Views\Home\User.html" />
-    <Content Include="Views\Home\Contact.html" />
+    <Content Include="AngularTemplates\About.html" />
+    <Content Include="AngularTemplates\Index.html" />
+    <Content Include="AngularTemplates\User.html" />
+    <Content Include="AngularTemplates\Contact.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -234,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
