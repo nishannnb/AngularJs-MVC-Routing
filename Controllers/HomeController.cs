@@ -34,9 +34,9 @@ namespace AngularJs_MVC_Routing.Controllers
             return View();
         }
 
-        public ActionResult Fun()
+        public ActionResult Customer()
         {
-            ViewBag.Message = "Your fun page.";
+            ViewBag.Message = "Your Customer page.";
 
             return View();
         }

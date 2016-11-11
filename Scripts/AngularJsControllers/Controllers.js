@@ -7,12 +7,47 @@ app.controller('UserController', ['$scope', '$routeParams', function ($scope, $r
 app.controller('HomeController', function ($scope) {
     $scope.Message = "This is HOME page";
 })
+
 app.controller('AboutController', function ($scope) {
     $scope.Message = "This is ABOUT page";
 })
 
-app.controller('FunController', function ($scope) {
-    $scope.Message = "This is Fun page";
+app.controller('CustomerController', function ($scope, $http, $location, $window) {
+    $scope.Message = "This is Customer page";
+    $scope.cust = {};
+    $scope.message = '';
+    $scope.result = "color-default";
+    $scope.isViewLoading = false;
+
+    //get called when user submits the form
+    $scope.submitForm = function () {
+        $scope.isViewLoading = true;
+        console.log('Form is submitted with:', $scope.cust);
+
+        //$http service that send or receive data from the remote server
+        $http({
+            method: 'POST',
+            url: '/Home/CreateCustomer',
+            data: $scope.cust
+        }).success(function (data, status, headers, config) {
+            $scope.errors = [];
+            if (data.success === true) {
+                $scope.cust = {};
+                $scope.message = 'Form data Submitted!';
+                $scope.result = "color-green";
+                window.location.replace(data.redirectUrl);
+                //$window.location.reload();
+            }
+            else {
+                $scope.errors = data.errors;
+            }
+        }).error(function (data, status, headers, config) {
+            $scope.errors = [];
+            $scope.message = 'Unexpected Error while saving data!!';
+        });
+        $scope.isViewLoading = false;
+    }
+
 })
 
 app.controller('UserController1', ['$scope', '$location', function ($scope, $location) {

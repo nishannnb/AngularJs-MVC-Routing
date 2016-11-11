@@ -1,0 +1,33 @@
+﻿
+<div ng-controller="CustomerController">
+    <h2>Customer Page</h2>
+    <p>{{Message}}</p>
+    <span ng-show="isViewLoading">
+        <img src="~/Content/images/ng-loader.gif" /> loading...
+    </span>
+
+    <form ng-submit="submitForm()" name="frmCustomer">
+        <div>
+            <label for="name">Customer Name</label>
+            <input type="text" ng-model="cust.Name" name="name" placeholder="Enter your name" required ng-minlength="4" ng-maxlength="14" />
+            <span class="error" ng-show="(frmCustomer.$dirty||submitted) && frmCustomer.name.$error.required">Customer name is Required</span>
+            <span class="error" ng-show="frmCustomer.$dirty && frmCustomer.name.$error.minlength">Minimum length required is 5</span>
+            <span class="error" ng-show="frmCustomer.$dirty && frmCustomer.name.$error.maxlength">Minimum length required is 15</span>
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input type="number" ng-model="cust.Age" name="age" placeholder="Enter your Age" required />
+            <span class="error" ng-show="(frmCustomer.$dirty ||submitted) && frmCustomer.age.$error.required">Age is Required!</span>
+            <span class="error" ng-show="(frmCustomer.$dirty ||submitted) && frmCustomer.$error.age">Invalid Age!</span>
+        </div>
+        <div>
+            <label for="year">Year</label>
+            <input type="number" ng-model="cust.Year" name="year" placeholder="Enter your Year" required />
+            <span class="error" ng-show="(frmCustomer.$dirty ||submitted) && frmCustomer.year.$error.required">Year is Required!</span>
+            <span class="error" ng-show="(frmCustomer.$dirty ||submitted) && frmCustomer.$error.year">Invalid Year!</span>
+        </div>
+        <div>
+            <input type="submit" value="Submit" ng-disabled="myForm.$invalid">
+        </div>
+    </form>
+</div>

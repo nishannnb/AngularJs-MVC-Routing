@@ -4,8 +4,8 @@ app.config([
     function ($locationProvider, $routeProvider) {
 
         $routeProvider
-        .when('/Home', { // For Home Page
-            templateUrl: '/Views/Home/Home.html',
+        .when('/Home/About', { // For Home Page
+            templateUrl: '/Views/Home/Index.html',
             controller: 'HomeController'
         })
         .when('/Contact', { // For Contact page
@@ -21,8 +21,8 @@ app.config([
             controller: 'UserController'
         })
         .when('/Fun', { // For User page 
-            templateUrl: '/Views/Home/Fun.html',
-            controller: 'FunController'
+            templateUrl: '/Views/Home/Customer.html',
+            controller: 'CustomerController'
         })
         .otherwise({   // This is when any route not matched => error
             controller: 'ErrorController'
