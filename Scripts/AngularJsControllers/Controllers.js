@@ -11,6 +11,10 @@ app.controller('AboutController', function ($scope) {
     $scope.Message = "This is ABOUT page";
 })
 
+app.controller('FunController', function ($scope) {
+    $scope.Message = "This is Fun page";
+})
+
 app.controller('UserController1', ['$scope', '$location', function ($scope, $location) {
     var paras = $location.search().userid;
     $scope.Message = "This is User information Page of user has id" + $location.path();

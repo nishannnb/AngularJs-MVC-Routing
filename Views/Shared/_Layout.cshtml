@@ -22,14 +22,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/#/Home">Home</a></li>
-                    <li><a href="/#/About">About</a></li>
-                    <li><a href="/#/Contact">Contact</a></li>
-                    <li><a href="/#/User/100">User</a></li>
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li><a href="/#/Home">Home</a></li>
+                        <li><a href="/#/About">About</a></li>
+                        <li><a href="/#/Contact">Contact</a></li>
+                        <li><a href="/#/User/100">User</a></li>*@
+                    <li><a href="/Home/Home">Home</a></li>
+                    <li><a href="/Home/About">About</a></li>
+                    <li><a href="/Home/Contact">Contact</a></li>
+                    <li><a href="/Home/User/100">User</a></li>
+                    <li><a href="/Home/Fun">Fun</a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("User", "User/100", "Home")</li>*@
+                    <li>@Html.ActionLink("User", "User/100", "Home")</li>
+                    <li>@Html.ActionLink("Fun", "Fun", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -46,7 +52,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    
+
     <script src="~/Scripts/AngularJsRouting/Routing.js"></script>
     <script src="~/Scripts/AngularJsControllers/Controllers.js"></script>
 </body>
