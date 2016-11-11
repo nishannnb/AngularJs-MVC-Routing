@@ -36,7 +36,6 @@ app.controller('CustomerController', function ($scope, $http, $location, $window
                 $scope.message = 'Form data Submitted!';
                 $scope.result = "color-green";
                 window.location.replace(data.redirectUrl);
-                //$window.location.reload();
             }
             else {
                 $scope.errors = data.errors;

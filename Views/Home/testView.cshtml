@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="container" ng-app="Hello">
+    <div class="panel panel-body" ng-controller="HelloCtrl">
+        <ul class="nav navbar-nav">
+            <a href="#Test">Template A</a>
+            <a href="#Index">Template B</a>
+            <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+            <li>@Html.ActionLink("Test", "Test", "Home", new { area = "" }, null)</li>
+        </ul>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-2">Name : </label>
+                <input type="text" name="txtName" ng-model="name" class="form-control text-capitalize" />
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Employee : </label>
+                <input type="text" name="txtEmployee" ng-model="employee" class="form-control text-capitalize" />
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2">Head Office : </label>
+                <input type="text" name="txtHeadoffice" ng-model="headoffice" class="form-control text-capitalize" />
+            </div>
+            <div class="text-capitalize">Welcome {{name}} {{employee}} {{headoffice}}....!</div><br />
+            <div>
+                <input type="button" class="btn btn-block col-sm-1 col-md-offset-1" value="Add New" ng-click="addRow()" />
+                <input type="button" ng-show="isedit" class="btn btn-block col-sm-1 col-md-offset-1" value="Update" ng-click="editRow(name)" />
+                <input type="button" class="btn btn-block col-sm-1 col-md-offset-1" value="Cancel" ng-click="clearRow()" />
+            </div>
+        </form>
+
+        <br />
+        <br />
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Search : </label>
+            <input type="text" name="searchKeyword" ng-model="searchKeyword" class="form-control" />
+        </div>
+        <br />
+        <table class="table table-hover" style="width:1000px">
+            <tr>
+                <th ng-click="orderByField = 'name';reverseSort = !reverseSort">Name</th>
+                <th ng-click="orderByField = 'employee';reverseSort = !reverseSort">Employee</th>
+                <th ng-click="orderByField = 'headoffice';reverseSort = !reverseSort">Head Office</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="company in companies | filter : searchKeyword | orderBy : orderByField:reverseSort">
+                <td>{{company.name}}</td>
+                <td>{{company.employee}}</td>
+                <td>{{company.headoffice}}</td>
+                <td><input type="button" class="btn btn-info" value="Edit" ng-click="editMode(company)" /> | <input type="button" class="btn btn-info" value="Remove" ng-click="removeRow(company.name)" /></td>
+            </tr>
+        </table>
+        <br />
+        <div class="alert-success col-lg-4">{{message}}</div>
+    </div>
+</div>
+
